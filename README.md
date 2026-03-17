@@ -28,12 +28,21 @@ Este projeto apresenta a arquitetura **Direct Core Injection**, desenvolvida par
 ---
 
 ## 🏗️ Arquitetura de Ficheiros
-```text
-extension-root/
-├── manifest.json       # Permissões MV3 e CSP para WASM
-├── background.js       # Orquestrador da fila (Service Worker)
-├── db-utility.js       # Driver de persistência (IndexedDB)
-├── offscreen.html      # Página invisível para o motor C++
-├── offscreen.js        # O Injetor de Núcleo (O "Cérebro")
-├── popup.js            # Interface do usuário (Drag-and-Drop)
-└── ffmpeg/             # Binários brutos (core.js e core.wasm)
+
+millow-ffmpeg-pro/
+│
+├── manifest.json         # Configurações, Permissões e CSP (WASM)
+├── background.js         # Service Worker (Fila Supabase e Controle)
+├── db-utility.js         # Driver IndexedDB (O "Disco Rígido" compartilhado)
+│
+├── popup.html            # Interface de Drag-and-Drop
+├── popup.css             # Estilo da interface
+├── popup.js              # Lógica da interface e gatilho de conversão
+│
+├── offscreen.html        # Página invisível (Host do motor C++)
+├── offscreen.js          # Injetor Direct Core (Onde a mágica acontece)
+│
+├── ffmpeg/               # Binários Brutos (Single-Thread)
+│   ├── ffmpeg-core.js    # O "Cérebro" do motor (v0.11.1)
+│   └── ffmpeg-core.wasm  # O "Músculo" do motor (v0.11.1)
+│
