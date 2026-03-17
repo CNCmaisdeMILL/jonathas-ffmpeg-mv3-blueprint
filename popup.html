@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Millow FFmpeg Converter</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Millow Converter</h1>
+            <span id="status" class="idle">Pronto</span>
+        </header>
+        
+        <div id="drop-zone" class="drop-zone">
+            <p>Arraste ficheiros MP3/WAV/AAC aqui</p>
+            <p class="sub">ou clique para selecionar</p>
+            <input type="file" id="file-input" multiple accept="audio/*">
+        </div>
+
+        <div id="file-list" class="file-list">
+            </div>
+    </div>
+    
+    <script src="db-utility.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
